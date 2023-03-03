@@ -1,3 +1,7 @@
+# Ray
+# Created By: 2023-03-03
+# Description: this is a one time file, for learning web scrape
+# @Deprecated
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -14,8 +18,6 @@ soup = BeautifulSoup(response.content, 'html.parser')
 # print(soup)
 
 # print(type(soup))
-
-
 
 # Find the news passage element by its class name
 news_passage = soup.find('div', {'class': 'post-content'})

@@ -1,3 +1,7 @@
+# Ray
+# Created By: 2023-03-03
+# Description: read stop words from  file
+
 def readStopWords(file_name):
     # Open the file in read mode
     file = open(file_name, 'r')

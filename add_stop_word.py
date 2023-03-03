@@ -1,15 +1,21 @@
+# Ray
+# Created By: 2023-03-03
+# Description: this function is to add stop words
+
+# add multiple stops words
 # can take any Collection<String>
 # e.g String[], Set<String>
-def addStopWordsToFile(file_name, stop_words):
+def add_stop_words_to_file(file_name, stop_words):
     for word in stop_words:
-        addStopWordToFile(file_name, word)
+        add_stop_word_to_file(file_name, word) # add one stop word
 
-#Add one Stop Word to default file, for test
-def addStopWordTest(word):
-    return addStopWordToFile('testAddStopWords', word)
+# testing method
+# Add one Stop Word to default file
+def add_stop_word_test(word):
+    return add_stop_word_to_file('testAddStopWords', word)
     
 #Add one stop word into the `file_name` file
-def addStopWordToFile(file_name, word):
+def add_stop_word_to_file(file_name, word):
     # Open the file in read mode
     file = open(file_name, 'r')
 
@@ -21,6 +27,7 @@ def addStopWordToFile(file_name, word):
 
     # Close the file
     file.close()
+    # add stop word to the list then serialize it
     my_set.add(word)
     set_string = str(my_set)
     file = open(file_name, 'w')
@@ -28,4 +35,4 @@ def addStopWordToFile(file_name, word):
     file.close()
     
 #testing
-addStopWordTest("a")
+add_stop_word_test("a")
