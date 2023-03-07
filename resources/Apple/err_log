@@ -1,6 +1,0 @@
-Article `download()` failed with 403 Client Error: Forbidden for url: https://www.investors.com/news/technology/apple-stock-has-5-underappreciated-catalysts-morgan-stanley-says/ on URL https://www.investors.com/news/technology/apple-stock-has-5-underappreciated-catalysts-morgan-stanley-says/
---------------------------
-Article `download()` failed with 403 Client Error: Forbidden for url: https://www.wsj.com/articles/top-apple-supplier-plans-major-india-expansion-f2908b88 on URL https://www.wsj.com/articles/top-apple-supplier-plans-major-india-expansion-f2908b88
---------------------------
-Article `download()` failed with ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) on URL https://www.xda-developers.com/ios-features-borrowed-android/
---------------------------

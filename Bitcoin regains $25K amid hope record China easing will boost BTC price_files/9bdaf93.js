@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[94],{833:function(n,o,e){"use strict";var t={name:"IconCoin",props:{svg:{type:String,default:""}}},r=e(13),component=Object(r.a)(t,(function(){var n=this;return(0,n._self._c)("div",{domProps:{innerHTML:n._s(n.svg)}})}),[],!1,null,null,null);o.a=component.exports}}]);
