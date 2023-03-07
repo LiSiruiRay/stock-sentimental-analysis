@@ -9,12 +9,13 @@ import os
 #import tempResult
 
 def save_results(key_word):
+    
     #get search result as list named results
     googlenews = GoogleNews()
     googlenews.search(key_word)
     results = googlenews.result() #list
     # directory name
-    directory = "resources/" + key_word
+    directory = "../resources/news/" + key_word
     errpath = os.path.join(directory, "err_log") #path to store err message
     #if not exist, create such directory
     if not os.path.exists(directory):

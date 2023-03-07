@@ -3,7 +3,6 @@
 # Description: This is a function clean the stop words in all the passage under a folder
 
 import threading
-import time
 import main.util.clean_passage as clean_passage
 import os
 import main.util.read_stop_words as read_stop_words
@@ -30,4 +29,4 @@ def clean_passage(folder_path):
     for each_t in thread_list:
         each_t.join()
 
-clean_passage('resources/Tesla')
+# clean_passage('resources/Tesla')
