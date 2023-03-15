@@ -4,6 +4,7 @@
 
 import os
 import re
+import logging
 import shutil
 
 # @Input: directory is the direcotry end with key word: e.g.: /resources/news/Google
@@ -21,17 +22,18 @@ def replace(directory, read_file_name, to_replace, replace):
     # print("read_file_name: " + read_file_name)
     
     dst_path = directory + "_cleaned"
+    if not os.path.exists(dst_path):
+        shutil.copytree(directory, dst_path)
     files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
     # print(files)
-    if not os.path.exists(dst_path):
-            os.mkdir(dst_path)
+    # if not os.path.exists(dst_path):
+    #         os.mkdir(dst_path)
     for file in files:
         if (file == 'meta_data.json'):
             continue
-        clean_empty_lines(directory + "/" + file, dst_path + "/" + file)
-        
-    # if not os.path.exists(dst_path):
-    #     shutil.copytree(directory, dst_path)
+        # clean_empty_lines(directory + "/" + file, dst_path + "/" + file)
+        # logging.info("Cleaning empty line of file: " + file)
+    
     replace_on_site(dst_path, read_file_name, to_replace, replace)
     
 def replace_on_site(directory, read_file_name, to_replace, replace):
@@ -60,6 +62,7 @@ def clean_empty_lines(input_path, output_path):
         path (string): the file path of the file: e.g: news/Google/1.txt
     """
     with open(input_path, 'r') as input_file, open(output_path, 'w') as output_file:
+        prev_line_empty = False
         for line in input_file:
             if line.strip():  # check if the line is not empty
                 output_file.write(line)

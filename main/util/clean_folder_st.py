@@ -10,11 +10,11 @@ import util.clean_passage as clean_passage
 import os
 import util.read_stop_words as stop_words_reader
 
-def clean_folder(folder_path):
+def clean_folder(folder_path, stop_word_list):
     # Get a list of all the file names in the folder
     file_names = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
 
-    stop_word_list = stop_words_reader.read_stop_words('../resources/static/stop_words') # get all the stop words
+    # stop_word_list = stop_words_reader.read_stop_words('../resources/static/stop_words') # get all the stop words
     
     #function for clean one passage
     def replace(directory, read_file_name):
