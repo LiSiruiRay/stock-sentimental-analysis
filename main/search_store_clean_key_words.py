@@ -7,6 +7,7 @@ from util.clean_folder_st import clean_folder
 from util.read_stop_words import read_stop_words
 import threading
 import logging
+import time
 
 
 
@@ -18,16 +19,15 @@ def search_key_words(key_words):
         key_words (Collection(string)): a collection of string, or list of string, or anything iterable in python with string inside
         
     """
-    STOP_WORD_DIR = "../resources/static/stop_words.txt"
-    
-    stop_words = read_stop_words(STOP_WORD_DIR)
-    # print(stop_words)
-    
+    start_time = time.time()
     logging.basicConfig(
         level = logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
+    STOP_WORD_DIR = "../resources/static/stop_words.txt"
+    
+    stop_words = read_stop_words(STOP_WORD_DIR)
     
     thread_list = []
     def search_and_clean(word):
@@ -37,23 +37,18 @@ def search_key_words(key_words):
         
     for key_word in key_words:
         t = threading.Thread(target=search_and_clean, args=(key_word,))
-        logging.info("Thread is created: " + key_word)
-        # print()
         thread_list.append(t)
     
     for i in range(0, len(key_words)):
         thread_list[i].start()
         logging.info("Thread started: " + key_words[i])
-        
-    # for each_t in thread_list:
-    #     each_t.start()
-    #     logging.info("Thread started: " + key_word)
     for i in range(0, len(key_words)):
         thread_list[i].join()
         logging.info("Thread finished: " + key_words[i])
-    # for each_t in thread_list:
-    #     each_t.join()
-        
-key_words_test = ["Google", "Apple", "Tesla"]
+    
+    end_time = time.time();
+    elapsed_time = end_time - start_time
+    logging.info("Run Time: " + str(elapsed_time) + " seconds")
+key_words_test = ["Google", "Apple", "Tesla", "SVB", "Signature bank", "Bank of American", "MIT", "New York", "New York University", "XiaoMi", "Bilibili"]
 # # key_words_test = ["MIT"]
 search_key_words(key_words_test)

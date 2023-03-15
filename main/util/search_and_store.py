@@ -8,10 +8,15 @@ from newspaper import Article
 import os
 import json
 import datetime
-#this was for testing
-#import tempResult
+import logging
 
 def save_results(key_word):
+    """This function will reasearch a key word and save the result into a folder named of the key word and the result as sub files named 1.txt, 2.txt, etc.
+
+    Args:
+        key_word (string): the key word for searching in google news
+    """
+    logging.info(key_word + ": searching")
     
     #get search result as list named results
     googlenews = GoogleNews()
@@ -29,7 +34,8 @@ def save_results(key_word):
     for i in range(0, len(results)):
         result_date = results[i]["datetime"]
         if (result_date):
-            results[i]["datetime"] = result_date.strftime('%Y-%m-%d %H:%M:%S.%f');
+            if not isinstance(result_date, float):
+                results[i]["datetime"] = result_date.strftime('%Y-%m-%d %H:%M:%S.%f');
         filename = str(i) + ".txt"
         # print(results[i]["datetime"]);
         meta_data[filename] = results[i]
@@ -46,7 +52,5 @@ def save_results(key_word):
         with open(filepath, "w") as file:
             file.write(article.text)
     with open(meta_data_path, "w") as f:
+        logging.info("Matadata Saving: " + key_word)
         json.dump(meta_data, f)
-    # print(meta_data)
-
-# save_results("FaceBook")
