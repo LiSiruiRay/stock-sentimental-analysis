@@ -4,7 +4,7 @@
 
 # Default directory: '../../resources/static/stop_words'
 
-def readStopWords(file_name):
+def read_stop_words(file_name):
     # Open the file in read mode
     file = open(file_name, 'r')
 

@@ -1,6 +1,7 @@
 # Ray
 # Created By: 2023-03-03
 # Description: This is a function clean the stop words in all the passage under a folder
+# @Deprecated
 
 import threading
 import main.util.clean_passage as clean_passage
@@ -12,7 +13,7 @@ def clean_passage(folder_path):
     file_names = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
 
     thread_list = [] # container for threads
-    stop_word_list = read_stop_words.readStopWords('testStopWords_Scraper') # get all the stop words
+    stop_word_list = read_stop_words.read_stop_words('testStopWords_Scraper') # get all the stop words
     
     #function for clean one passage
     def replace(directory, read_file_name):
