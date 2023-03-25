@@ -3,7 +3,7 @@
 ```
 stock-sentimental-analysis/
 |-/resources
-  |-/static
+	|-/static
 		|-stop-words
 	|-/temp-news
 		|-/Tesla
@@ -12,7 +12,7 @@ stock-sentimental-analysis/
 			|-3
 			|-err_log
 		|-/Apple/...
-|-passage_cleaning.py
+|-passage_cleaning.py (entry of the program for clean stop words)
 |-/utils
-	|-
+|-
 ```
