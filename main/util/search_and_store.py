@@ -2,7 +2,6 @@
 # Created By: 2023-03-01
 # Description: This function takes in a key word and google searcht the key word. After that, the passage will be store in the resources/news/{key_word} folder
 
-
 from GoogleNews import GoogleNews
 from newspaper import Article
 import os
@@ -42,6 +41,8 @@ def save_results(key_word):
         filepath = os.path.join(directory, filename)
         url = results[i]["link"]
         try: #try to scrape url, if suceed, write it into a file
+            print(url)
+            print()
             article = Article(url)
             article.download()
             article.parse()
